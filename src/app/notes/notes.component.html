@@ -1,0 +1,46 @@
+<div class="container">
+    <h2 class="my-4">Gestion des Notes</h2>
+  
+    <!-- Tableau pour afficher la liste des notes -->
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Numéro Étudiant</th>
+          <th scope="col">Code Matière</th>
+          <th scope="col">Note</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Utilisez *ngFor pour parcourir la liste des notes -->
+        <tr *ngFor="let row of all_notes;">
+            <td *ngFor="let item of row">{{item}}</td>
+            <td>
+                <!-- Ajoutez des boutons stylisés pour les actions (éditer, supprimer, etc.) -->
+                <button class="btn btn-warning btn-sm me-5">Éditer</button>
+                <button class="btn btn-danger btn-sm">Supprimer</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Formulaire pour ajouter ou éditer une note -->
+    <div class="my-4">
+      <h4>Ajouter/Éditer Note</h4>
+      <form>
+        <div class="form-group">
+          <label for="numEtudiant">Numéro Étudiant</label>
+          <input type="text" class="form-control" id="numEtudiant" required>
+        </div>
+        <div class="form-group">
+          <label for="codeMatiere">Code Matière</label>
+          <input type="text" class="form-control" id="codeMatiere" required>
+        </div>
+        <div class="form-group">
+          <label for="valeurNote">Note</label>
+          <input type="number" class="form-control" id="valeurNote" required>
+        </div>
+        <button style="margin-top: 15px;" type="submit" class="btn btn-success" >Enregistrer</button>
+      </form>
+    </div>
+  </div>

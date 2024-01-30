@@ -1,0 +1,45 @@
+<div class="container">
+    <h2 class="my-4">Gestion des Étudiants</h2>
+    <!-- Tableau pour afficher la liste des étudiants -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Numéro étudiant</th>
+          <th scope="col">Nom et prénoms</th>
+          <th scope="col">Niveau</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Utilisez *ngFor pour parcourir la liste des étudiants -->
+        <tr *ngFor="let row of all">
+            <td *ngFor="let item of row">{{item}}</td>
+            <td>
+                <!-- Ajoutez des boutons pour les actions (éditer, supprimer, etc.) -->
+                <button class="btn btn-primary me-5">Éditer</button>
+                <button class="btn btn-danger">Supprimer</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Formulaire pour ajouter ou éditer un étudiant -->
+    <div class="my-4">
+      <h4>Ajouter/Éditer Étudiant</h4>
+        <form (ngSubmit)="submitForm()">
+          <div class="form-group">
+            <label for="numeroEtudiant">Numéro Étudiant</label>
+            <input type="text" class="form-control" id="numeroEtudiant" [(ngModel)]="formData.numeroEtudiant" [ngModelOptions]="{standalone: true}" required>
+          </div>
+          <div class="form-group">
+            <label for="nomEtudiant">Nom</label>
+            <input type="text" class="form-control" id="nomEtudiant" [(ngModel)]="formData.nomEtudiant" [ngModelOptions]="{standalone: true}" required>
+          </div>
+          <div class="form-group">
+            <label for="niveauEtudiant">Niveau</label>
+            <input type="text" class="form-control" id="niveauEtudiant" [(ngModel)]="formData.niveauEtudiant" [ngModelOptions]="{standalone: true}" required>
+          </div>
+          <button (click)="refresh()" style="margin-top: 15px;"  type="submit" class="btn btn-success">Enregistrer</button>
+        </form>
+    </div>
+  </div>
